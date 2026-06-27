@@ -11,9 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/styles', express.static(path.join(__dirname, 'styles')));
 app.use('/src',    express.static(path.join(__dirname, 'src')));
 
-// Re-use the same localhost certs from the supertable project.
-// If you have them in this directory instead, update the paths.
-const certDir = path.join(__dirname, '..', 'tableau-viz-extension-supertable');
+const certDir = __dirname;
 const sslOptions = {
   key:  fs.readFileSync(path.join(certDir, 'localhost-key.pem')),
   cert: fs.readFileSync(path.join(certDir, 'localhost.pem')),
