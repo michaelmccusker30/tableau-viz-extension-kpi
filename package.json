@@ -1,0 +1,17 @@
+{
+  "name": "tableau-viz-extension-kpi",
+  "version": "1.0.0",
+  "description": "KPI Card – Tableau Viz Extension",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "tableau": "node server-tableau.js",
+    "dev": "node server.js & node server-tableau.js"
+  },
+  "author": "Michael McCusker",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "express": "^5.2.1"
+  }
+}
