@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest manifest-version="0.1" xmlns="http://www.tableau.com/xml/extension_manifest">
+  <worksheet-extension id="com.mccusker.kpicard" extension-version="1.0.0">
+    <default-locale>en_US</default-locale>
+    <name resource-id="name"/>
+    <description>KPI Card with BAN, trend line, and goal tracking.</description>
+    <author name="Michael McCusker" email="" organization="McCusker" website="https://kpi-card.extensions.michael-mccusker.com"/>
+    <min-api-version>1.11</min-api-version>
+    <source-location>
+      <url>https://kpi-card.extensions.michael-mccusker.com/index.html</url>
+    </source-location>
+    <icon/>
+    <encoding id="measure">
+      <display-name resource-id="meas-name">Measure</display-name>
+      <data-spec>
+        <data-type>numeric</data-type>
+      </data-spec>
+      <role-spec>
+        <role-type>continuous-measure</role-type>
+      </role-spec>
+      <fields max-count="1"/>
+    </encoding>
+    <encoding id="date">
+      <display-name resource-id="date-name">Date</display-name>
+      <data-spec>
+        <data-type>temporal</data-type>
+      </data-spec>
+      <fields max-count="1"/>
+    </encoding>
+    <encoding id="denominator">
+      <display-name resource-id="denom-name">Denominator</display-name>
+      <data-spec>
+        <data-type>numeric</data-type>
+      </data-spec>
+      <role-spec>
+        <role-type>continuous-measure</role-type>
+      </role-spec>
+      <fields max-count="1"/>
+    </encoding>
+  </worksheet-extension>
+  <resources>
+    <resource id="name">
+      <text locale="en_US">KPI Card</text>
+    </resource>
+    <resource id="meas-name">
+      <text locale="en_US">Measure</text>
+    </resource>
+    <resource id="date-name">
+      <text locale="en_US">Date</text>
+    </resource>
+    <resource id="denom-name">
+      <text locale="en_US">Denominator</text>
+    </resource>
+  </resources>
+</manifest>
