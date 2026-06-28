@@ -175,8 +175,17 @@ html, body {
   font-size: 0.9rem;
   font-weight: 500;
   opacity: 0.65;
-  padding: 1rem 0;
+  padding: 1rem 0 0.5rem;
   max-width: 24ch;
+}
+
+.kpi-disclaimer {
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.4;
+  max-width: 32ch;
+  line-height: 1.5;
+  padding-bottom: 0.5rem;
 }
 
 /* Gear icon — appears on hover */

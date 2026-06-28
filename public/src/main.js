@@ -492,15 +492,19 @@ function statusClass(value, cfg) {
   return (cfg.goalDirection === "higher" ? value >= cfg.goal : value <= cfg.goal) ? "good" : "bad";
 }
 
-function renderMessage(cfg, text) {
+function renderMessage(cfg, text, disclaimer) {
   root.innerHTML =
     '<div class="kpi-card" style="background:' + cfg.bgColor + ';color:' + cfg.textColor + '">' +
       '<div class="kpi-status-bar bar-top neutral"></div>' +
-      '<div class="kpi-content"><div class="kpi-message"></div></div>' +
+      '<div class="kpi-content">' +
+        '<div class="kpi-message" style="' + (disclaimer ? 'font-size:1.1em;font-weight:600;' : '') + '"></div>' +
+        (disclaimer ? '<div class="kpi-disclaimer"></div>' : '') +
+      '</div>' +
     '</div>' +
     '<button id="gear" title="Configure" aria-label="Configure">&#9881;</button>' +
     '<div id="version">v' + VERSION + '</div>';
   root.querySelector(".kpi-message").textContent = text;
+  if (disclaimer) root.querySelector(".kpi-disclaimer").textContent = disclaimer;
   root.querySelector(".kpi-card").style.fontFamily = FONT_FAMILIES[cfg.fontFamily] || FONT_FAMILIES.system;
   wireGear();
 }
@@ -597,7 +601,7 @@ async function updateKpi() {
   var measureField = encFields[MEASURE_ENCODING_ID];
 
   if (!measureField) {
-    renderMessage(cfg, "Drag a measure onto the Measure tile.");
+    renderMessage(cfg, "Drag a measure onto the Measure tile.", "For demonstration purposes only. Not intended for production use in live dashboards or business-critical reporting. Use at your own risk.");
     return;
   }
   var dateField = encFields[DATE_ENCODING_ID];
