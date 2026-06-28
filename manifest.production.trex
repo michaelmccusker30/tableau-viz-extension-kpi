@@ -4,10 +4,10 @@
     <default-locale>en_US</default-locale>
     <name resource-id="name"/>
     <description>KPI Card with BAN, trend line, and goal tracking.</description>
-    <author name="Michael McCusker" email="" organization="McCusker" website="https://localhost:3001"/>
+    <author name="Michael McCusker" email="" organization="McCusker" website="https://VERCEL_URL_HERE"/>
     <min-api-version>1.11</min-api-version>
     <source-location>
-      <url>https://localhost:3001/index.html</url>
+      <url>https://VERCEL_URL_HERE/index.html</url>
     </source-location>
     <icon/>
     <encoding id="measure">
