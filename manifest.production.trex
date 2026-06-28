@@ -4,10 +4,10 @@
     <default-locale>en_US</default-locale>
     <name resource-id="name"/>
     <description>KPI Card with BAN, trend line, and goal tracking.</description>
-    <author name="Michael McCusker" email="" organization="McCusker" website="https://tableau-viz-extension-kpi-esgy.vercel.app"/>
+    <author name="Michael McCusker" email="" organization="McCusker" website="https://kpi-card.extensions.michael-mccusker.com"/>
     <min-api-version>1.11</min-api-version>
     <source-location>
-      <url>https://tableau-viz-extension-kpi-esgy.vercel.app/index.html</url>
+      <url>https://kpi-card.extensions.michael-mccusker.com/index.html</url>
     </source-location>
     <icon/>
     <encoding id="measure">
