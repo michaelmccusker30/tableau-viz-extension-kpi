@@ -210,6 +210,77 @@ html, body {
 body:hover #gear  { opacity: 0.55; }
 #gear:hover       { opacity: 1 !important; }
 
+/* Info button — appears on hover beside gear */
+#kpi-info-btn {
+  position: fixed;
+  top: 8px;
+  right: 38px;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(128, 128, 128, 0.15);
+  color: inherit;
+  font-size: 14px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 20;
+}
+body:hover #kpi-info-btn { opacity: 0.55; }
+#kpi-info-btn:hover      { opacity: 1 !important; }
+
+/* Info help panel */
+#kpi-info-panel {
+  position: fixed;
+  top: 38px;
+  right: 8px;
+  width: 260px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 100;
+  font-size: 12px;
+  color: #0f172a;
+  overflow: hidden;
+}
+.kpi-help-body {
+  padding: 14px 16px 10px;
+  line-height: 1.55;
+}
+.kpi-help-body strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+.kpi-help-body strong + ul { margin-top: 0; }
+.kpi-help-body ul {
+  margin: 0 0 12px 0;
+  padding-left: 16px;
+}
+.kpi-help-body li { margin-bottom: 4px; }
+
+.kpi-help-footer {
+  font-size: 10px;
+  color: #94a3b8;
+  padding: 8px 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Attribution on the empty/landing state */
+.kpi-attribution {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 16px;
+}
+
 #version {
   position: fixed;
   left: 10px;

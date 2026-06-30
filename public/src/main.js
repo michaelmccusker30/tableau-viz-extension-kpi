@@ -499,14 +499,18 @@ function renderMessage(cfg, text, disclaimer) {
       '<div class="kpi-content">' +
         '<div class="kpi-message" style="' + (disclaimer ? 'font-size:1.1em;font-weight:600;' : '') + '"></div>' +
         (disclaimer ? '<div class="kpi-disclaimer"></div>' : '') +
+        '<div class="kpi-attribution">KPI Card · Created by Michael McCusker · 2026</div>' +
       '</div>' +
     '</div>' +
     '<button id="gear" title="Configure" aria-label="Configure">&#9881;</button>' +
+    '<button id="kpi-info-btn" title="How to use" aria-label="How to use">ⓘ</button>' +
+    '<div id="kpi-info-panel" style="display:none;"></div>' +
     '<div id="version">v' + VERSION + '</div>';
   root.querySelector(".kpi-message").textContent = text;
   if (disclaimer) root.querySelector(".kpi-disclaimer").textContent = disclaimer;
   root.querySelector(".kpi-card").style.fontFamily = FONT_FAMILIES[cfg.fontFamily] || FONT_FAMILIES.system;
   wireGear();
+  wireInfo();
 }
 
 function renderCard(cfg, label, value, caption, delta, chartCurrentVals, chartPrevVals, chartLabels) {
@@ -553,6 +557,8 @@ function renderCard(cfg, label, value, caption, delta, chartCurrentVals, chartPr
       '<div class="kpi-content">' + inner + '</div>' +
     '</div>' +
     '<button id="gear" title="Configure" aria-label="Configure">&#9881;</button>' +
+    '<button id="kpi-info-btn" title="How to use" aria-label="How to use">ⓘ</button>' +
+    '<div id="kpi-info-panel" style="display:none;"></div>' +
     '<div id="version">v' + VERSION + '</div>' +
     '<div id="kpi-tip" class="kpi-tooltip"></div>';
 
@@ -588,6 +594,41 @@ function renderCard(cfg, label, value, caption, delta, chartCurrentVals, chartPr
 function wireGear() {
   var g = document.getElementById("gear");
   if (g) g.onclick = openConfigDialog;
+}
+
+function wireInfo() {
+  var btn   = document.getElementById("kpi-info-btn");
+  var panel = document.getElementById("kpi-info-panel");
+  if (!btn || !panel) return;
+
+  panel.innerHTML =
+    '<div class="kpi-help-body">' +
+      '<strong>Shelf setup</strong>' +
+      '<ul>' +
+        '<li><b>Measure</b> — the metric shown as the big number (BAN). Required.</li>' +
+        '<li><b>Date</b> — enables the trend chart, YoY / PoP delta, and period captions. Optional.</li>' +
+        '<li><b>Denominator</b> — divide Measure by this field each period (e.g. Profit ÷ Revenue = Profit Ratio). Optional.</li>' +
+      '</ul>' +
+      '<strong>Tips</strong>' +
+      '<ul>' +
+        '<li>Click the ⚙ gear icon to open settings and configure format, goal, chart style, and colors.</li>' +
+        '<li>Set a Goal value in settings to enable the status bar indicator.</li>' +
+        '<li>Use "Latest period" aggregation for a point-in-time BAN with YoY delta.</li>' +
+      '</ul>' +
+    '</div>' +
+    '<div class="kpi-help-footer">KPI Card v' + VERSION + ' · Created by Michael McCusker · 2026</div>';
+
+  btn.onclick = function (e) {
+    e.stopPropagation();
+    var isOpen = panel.style.display !== "none";
+    panel.style.display = isOpen ? "none" : "block";
+  };
+
+  document.addEventListener("click", function closePanel(e) {
+    if (!panel.contains(e.target) && e.target !== btn) {
+      panel.style.display = "none";
+    }
+  });
 }
 
 /* ─── Main update ────────────────────────────────────────── */
